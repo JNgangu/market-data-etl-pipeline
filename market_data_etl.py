@@ -1,6 +1,6 @@
 """
 Project: Market Data ETL Pipeline
-Author: Joe Nganu
+Author: Joe Ngangu
 Description:
 Extracts live cryptocurrency market data from a public API, transforms it using Pandas, 
 and loads it into a local SQLite database for analysis.

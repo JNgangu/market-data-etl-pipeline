@@ -10,17 +10,17 @@ import requests
 import pandas as pd
 import sqlite3
 
-# 1️⃣ Extract – Get data from CoinGecko API
+#  Extract – Get data from CoinGecko API
 url = "https://api.coingecko.com/api/v3/coins/markets"
 params = {"vs_currency": "usd", "order": "market_cap_desc", "per_page": 50, "page": 1}
 response = requests.get(url, params=params)
 data = response.json()
 
-# 2️⃣ Transform – Select and rename key fields
+#  Transform – Select and rename key fields
 df = pd.DataFrame(data)[["id", "symbol", "current_price", "market_cap", "total_volume"]]
 df.rename(columns={"id": "coin", "symbol": "ticker"}, inplace=True)
 
-# 3️⃣ Load – Save to SQLite database
+#  Load – Save to SQLite database
 conn = sqlite3.connect("market_data.db")
 df.to_sql("crypto_markets", conn, if_exists="replace", index=False)
 conn.close()

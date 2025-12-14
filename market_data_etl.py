@@ -25,4 +25,4 @@ conn = sqlite3.connect("market_data.db")
 df.to_sql("crypto_markets", conn, if_exists="replace", index=False)
 conn.close()
 
-print("✅ Market data ETL complete – crypto data saved to 'market_data.db'")
+print(" Market data ETL complete – crypto data saved to 'market_data.db'")
